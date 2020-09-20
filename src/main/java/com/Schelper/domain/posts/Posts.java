@@ -1,5 +1,6 @@
 package com.Schelper.domain.posts;
 
+import com.Schelper.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,9 +10,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Posts {
-
-
+public class Posts extends BaseTimeEntity {
 
     @Id //JPA PK선언 어노테이션
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +29,10 @@ public class Posts {
         this.title = title;
         this.content = content;
         this.author = author;
+    }
 
+    public void update(String title, String content){
+        this.title = title;
+        this.content = content;
     }
 }
